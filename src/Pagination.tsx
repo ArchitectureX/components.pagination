@@ -10,7 +10,7 @@ export type Props = {
   href: string
 }
 
-const Pagination: FC<Props> = ({ href, rowsPerPage, page, total: count, color = 'primary' }) => {
+const Pagination: FC<Props> = ({ href, rowsPerPage, page, total: count }) => {
   const maxElementsPerPage = rowsPerPage || 10
   const increment = 5
 
