@@ -1,49 +1,38 @@
-# @architecturex/components.button
+# @architecturex/components.pagination
 
-## Button
+## Pagination
 
-A flexible and customizable button component for React applications built with Tailwind CSS.
+A flexible and customizable pagination component for React applications.
 
 ### Installation
 
-`npm install @architecturex/components.button`
+`npm install @architecturex/components.pagination`
 
 ### Features
 
-- Supports various color schemes.
-- **Three size options:** small, medium, and large.
-- **Variants:** contained, outlined, and text.
-- **Shapes:** regular, rounded, circle, and square.
-- Supports both buttons and links.
-- Loading and disabled states.
+- Supports various color themes: 'primary', 'secondary', 'danger', 'warning', and 'success'.
+- Customizable rows per page.
+- Adjustable href for pagination links.
+- Efficient rendering by only showing necessary pages in the viewport.
 
 ### Usage
 
 ```javascript
-import Button from '@architecturex/components.button'
+import Pagination from '@architecturex/components.pagination'
 
 function App() {
-  return (
-    <Button color="primary" size="medium" variant="contained">
-      Click me!
-    </Button>
-  )
+  return <Pagination href="/page/" page={1} total={50} color="primary" />
 }
 ```
 
 ### Props
 
-- **color:** Sets the color scheme of the button. (default: 'primary')
-- **size:** Determines the size of the button. (default: 'medium')
-- **variant:** Sets the button style. (default: 'contained')
-- **shape:** Defines the shape of the button. (default: 'regular')
-- **href:** If provided, the button will be rendered as a link.
-- **target:** Set the target attribute for the link button.
-- **fullWidth:** If true, the button will take up the full width of its container.
-- **disabled:** If true, the button will be disabled.
-- **isLoading:** If true, the button will show a loading state.
-- **loadingText:** Text to show during the loading state.
+- **color (Optional):** Set the color theme of the pagination. Choices are 'primary', 'secondary', 'danger', 'warning', or 'success'. Default is 'primary'.
+- **page:** Current page number. Starts at 0.
+- **total:** Total number of items.
+- **rowsPerPage (Optional):** Number of rows/items per page. Default is 10.
+- **href:** Base URL for the pagination links.
 
 ### Contribution
 
-Feel free to suggest improvements, report issues, or contribute to enhancing these utilities. Your feedback and contributions are welcome!
+Feel free to suggest improvements, report issues, or contribute to enhancing this component. Your feedback and contributions are welcome!
