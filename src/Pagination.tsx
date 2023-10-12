@@ -1,7 +1,5 @@
 import React, { FC, ReactElement, ReactNode } from 'react'
 
-import { styles } from './styles'
-
 export type Props = {
   color?: 'primary' | 'secondary' | 'danger' | 'warning' | 'success'
   page: number
