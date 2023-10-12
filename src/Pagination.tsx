@@ -30,16 +30,19 @@ const Pagination: FC<Props> = ({ href, rowsPerPage, page, total: count }) => {
 
       if (start === next) {
         pageNav.push(
-          <li key={i}>
-            <a href="#">
-              <span className={`active ${styles.active}`}>{pge}</span>
+          <li key={i} className="m-1">
+            <a href="#" className="px-4 py-2 bg-blue-500 text-white rounded-full hover:bg-blue-700">
+              <span>{pge}</span>
             </a>
           </li>
         )
       } else {
         pageNav.push(
-          <li key={i}>
-            <a href={`${href}${pge}`}>
+          <li key={i} className="m-1">
+            <a
+              href={`${href}${pge}`}
+              className="px-4 py-2 bg-gray-200 rounded-full hover:bg-gray-300"
+            >
               <span>{pge}</span>
             </a>
           </li>
@@ -53,9 +56,12 @@ const Pagination: FC<Props> = ({ href, rowsPerPage, page, total: count }) => {
   const getPageNext = (currentPage: number, pages: number): ReactNode => {
     if (currentPage <= pages - 1) {
       return (
-        <li>
-          <a href={`${href}${currentPage + 1}`}>
-            <span className="next">&gt;</span>
+        <li className="m-1">
+          <a
+            href={`${href}${currentPage + 1}`}
+            className="px-4 py-2 bg-gray-200 rounded-full hover:bg-gray-300"
+          >
+            <span>&gt;</span>
           </a>
         </li>
       )
@@ -67,9 +73,12 @@ const Pagination: FC<Props> = ({ href, rowsPerPage, page, total: count }) => {
   const getPagePrevious = (start: number, currentPage: number) => {
     if (start > 0) {
       return (
-        <li>
-          <a href={`${href}${currentPage - 1}`}>
-            <span className={styles.previous}>&lt;</span>
+        <li className="m-1">
+          <a
+            href={`${href}${currentPage - 1}`}
+            className="px-4 py-2 bg-gray-200 rounded-full hover:bg-gray-300"
+          >
+            <span>&lt;</span>
           </a>
         </li>
       )
@@ -135,7 +144,7 @@ const Pagination: FC<Props> = ({ href, rowsPerPage, page, total: count }) => {
     }
 
     return (
-      <ul>
+      <ul className="flex items-center justify-center mt-4">
         {pagePrevious}
         {pageNav}
         {pageNext}
