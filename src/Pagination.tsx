@@ -3,22 +3,11 @@ import React, { FC, ReactElement, ReactNode } from 'react'
 import { styles } from './styles'
 
 export type Props = {
-  color?: 'primary' | 'secondary' | 'danger' | 'warning' | 'success'
+  color?: 'primary' | 'secondary' | 'danger' | 'warning' | 'success' | 'info' | 'dark' | 'light'
   page: number
   total: number
   rowsPerPage?: number
   href: string
-}
-
-const palette = {
-  primary: 'bg-blue-500',
-  secondary: 'bg-gray-500',
-  danger: 'bg-red-500',
-  warning: 'bg-yellow-500',
-  success: 'bg-green-500',
-  info: 'bg-blue-600',
-  dark: 'bg-gray-800',
-  light: 'bg-gray-100'
 }
 
 const Pagination: FC<Props> = ({ color = 'primary', href, rowsPerPage, page, total: count }) => {
@@ -42,7 +31,7 @@ const Pagination: FC<Props> = ({ color = 'primary', href, rowsPerPage, page, tot
       if (start === next) {
         pageNav.push(
           <li key={i} className={styles.li}>
-            <a href="#" className={styles.pageNavLink(palette[color])}>
+            <a href="#" className={styles.pageNavLink(styles[color])}>
               <span>{pge}</span>
             </a>
           </li>
