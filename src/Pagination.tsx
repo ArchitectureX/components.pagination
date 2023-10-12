@@ -1,5 +1,6 @@
 import React, { FC, ReactElement, ReactNode } from 'react'
 
+import styles from './styles'
 export type Props = {
   color?: 'primary' | 'secondary' | 'danger' | 'warning' | 'success'
   page: number
@@ -28,19 +29,16 @@ const Pagination: FC<Props> = ({ href, rowsPerPage, page, total: count }) => {
 
       if (start === next) {
         pageNav.push(
-          <li key={i} className="m-1">
-            <a href="#" className="px-4 py-2 bg-blue-500 text-white rounded-full hover:bg-blue-700">
+          <li key={i} className={styles.li}>
+            <a href="#" className={styles.pageNavLink}>
               <span>{pge}</span>
             </a>
           </li>
         )
       } else {
         pageNav.push(
-          <li key={i} className="m-1">
-            <a
-              href={`${href}${pge}`}
-              className="px-4 py-2 bg-gray-200 rounded-full hover:bg-gray-300"
-            >
+          <li key={i} className={styles.li}>
+            <a href={`${href}${pge}`} className={styles.pageNavLinkPge}>
               <span>{pge}</span>
             </a>
           </li>
@@ -54,11 +52,8 @@ const Pagination: FC<Props> = ({ href, rowsPerPage, page, total: count }) => {
   const getPageNext = (currentPage: number, pages: number): ReactNode => {
     if (currentPage <= pages - 1) {
       return (
-        <li className="m-1">
-          <a
-            href={`${href}${currentPage + 1}`}
-            className="px-4 py-2 bg-gray-200 rounded-full hover:bg-gray-300"
-          >
+        <li className={styles.li}>
+          <a href={`${href}${currentPage + 1}`} className={styles.pageNextLink}>
             <span>&gt;</span>
           </a>
         </li>
@@ -71,11 +66,8 @@ const Pagination: FC<Props> = ({ href, rowsPerPage, page, total: count }) => {
   const getPagePrevious = (start: number, currentPage: number) => {
     if (start > 0) {
       return (
-        <li className="m-1">
-          <a
-            href={`${href}${currentPage - 1}`}
-            className="px-4 py-2 bg-gray-200 rounded-full hover:bg-gray-300"
-          >
+        <li className={styles.li}>
+          <a href={`${href}${currentPage - 1}`} className={styles.pagePreviousLink}>
             <span>&lt;</span>
           </a>
         </li>
@@ -142,7 +134,7 @@ const Pagination: FC<Props> = ({ href, rowsPerPage, page, total: count }) => {
     }
 
     return (
-      <ul className="flex items-center justify-center mt-4">
+      <ul className={styles.paginationList}>
         {pagePrevious}
         {pageNav}
         {pageNext}
