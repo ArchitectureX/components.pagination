@@ -10,7 +10,18 @@ export type Props = {
   href: string
 }
 
-const Pagination: FC<Props> = ({ href, rowsPerPage, page, total: count }) => {
+const palette = {
+  primary: 'bg-blue-500',
+  secondary: 'bg-gray-500',
+  danger: 'bg-red-500',
+  warning: 'bg-yellow-500',
+  success: 'bg-green-500',
+  info: 'bg-blue-600',
+  dark: 'bg-gray-800',
+  light: 'bg-gray-100'
+}
+
+const Pagination: FC<Props> = ({ color = 'primary', href, rowsPerPage, page, total: count }) => {
   const maxElementsPerPage = rowsPerPage || 10
   const increment = 5
 
@@ -31,7 +42,7 @@ const Pagination: FC<Props> = ({ href, rowsPerPage, page, total: count }) => {
       if (start === next) {
         pageNav.push(
           <li key={i} className={styles.li}>
-            <a href="#" className={styles.pageNavLink}>
+            <a href="#" className={styles.pageNavLink(palette[color])}>
               <span>{pge}</span>
             </a>
           </li>
