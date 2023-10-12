@@ -15,7 +15,7 @@ export const styles = {
   success: 'bg-green-500',
   info: 'bg-blue-600',
   dark: 'bg-gray-800',
-  light: 'bg-gray-100'
+  light: 'bg-gray-300'
 }
 
 export const tailwindClasses = cx.extract(styles)
